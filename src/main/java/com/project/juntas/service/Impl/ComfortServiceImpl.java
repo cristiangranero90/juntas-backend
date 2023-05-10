@@ -32,7 +32,7 @@ public class ComfortServiceImpl implements ComfortService {
         Comfort comfort = repository.findById(id).orElseThrow(()->new ResourceNotFoundException(""));
 
         comfort.setAcceptChild(request.getAcceptChild());
-        comfort.setLuggage(request.getLuggage());
+        //comfort.setLuggage(request.getLuggage());
         comfort.setAcceptSmokers(request.getAcceptSmokers());
         comfort.setPetFriendly(request.getPetFriendly());
 

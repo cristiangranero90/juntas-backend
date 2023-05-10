@@ -18,7 +18,9 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -127,5 +129,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 user.getEmail(),
                 user.getPassword(),
                 List.of(grantedAuthority));
+    }
+
+    public User getUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return this.repository.findByEmail(authentication.getName())
+                .orElseThrow(() -> new ResourceNotFoundException(messenger.getMessage(RESOURCE_NOT_FOUND.name(),
+                        new Object[]{User.class.getName()}, Locale.getDefault())));
     }
 }

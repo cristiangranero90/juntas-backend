@@ -21,7 +21,8 @@ public class Comfort implements Serializable {
     private boolean acceptChild;
     private boolean petFriendly;
     private boolean acceptSmokers;
-    private boolean luggage;
-
+    private boolean luggageBig;
+    private boolean luggageMid;
+    private boolean luggageSma;
 
 }

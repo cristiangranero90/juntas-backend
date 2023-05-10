@@ -25,7 +25,4 @@ public class Vehicle implements Serializable {
     private String patentNumber;
     private boolean isVerified;
 
-    @OneToOne(mappedBy = "vehicle")
-    private Journey journey;
-
 }

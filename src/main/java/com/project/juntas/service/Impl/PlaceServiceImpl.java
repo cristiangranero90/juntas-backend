@@ -54,7 +54,10 @@ public class PlaceServiceImpl implements PlaceService {
     }
 
     public Place getDataFromApi(Place place){
-        String url = "https://apis.datos.gob.ar/georef/api"+ place.getCity();
+        //https://apis.datos.gob.ar/georef/api/municipios?provincia=mendoza&campos=id,nombre,centroide.lat,centroide.lon&nombre=lavalle
+        String url = "https://apis.datos.gob.ar/georef/api/municipios?provincia="
+                + place.getProvince() +"&campos=id,nombre,centroide.lat,centroide.lon&nombre="
+                + place.getCity();
         PlaceApi placeApi= restTemplate.getForObject(url, PlaceApi.class);
 
         place.setLat(placeApi.getLat());

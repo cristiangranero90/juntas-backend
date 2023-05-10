@@ -22,10 +22,8 @@ public class Journey implements Serializable {
     private Long journeyId;
 
     private LocalDate createDate;
-    private LocalDateTime departureDate;
+    private LocalDate departureDate;
     private LocalDate arrivalDate;
-    private int price;
-
 
     @OneToOne
     @JoinColumn(name = "driver")

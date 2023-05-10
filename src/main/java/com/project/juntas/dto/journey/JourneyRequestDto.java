@@ -2,25 +2,35 @@ package com.project.juntas.dto.journey;
 
 import lombok.Getter;
 
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 
 @Getter
 public class JourneyRequestDto {
-    private Long id;
+
     private LocalDate createDate;
-    private LocalDateTime departureDate;
+    private LocalDate departureDate;
     private LocalDate arrivalDate;
-    private int price;
-    @NotNull
-    private Long driverId;
-    @NotNull
-    private Long comfortId;
-    @NotNull
-    private Long vehicleId;
-    @NotNull
-    private Long arrivalId;
-    @NotNull
-    private Long departureId;
+
+    //Comfort
+    private boolean acceptChild;
+    private boolean petFriendly;
+    private boolean acceptSmokers;
+    private boolean luggageBig;
+    private boolean luggageMid;
+    private boolean luggageSma;
+
+    //Departure
+    private String cityDep;
+    private String provinceDep;
+    //Arrival
+    private String cityArr;
+    private String provinceArr;
+
+    //Vehicle
+    private String vehicleColor;
+    private Integer emptySeats;
+    private String primaryBrand;
+    private String modelName;
+    private String patentNumber;
 }
